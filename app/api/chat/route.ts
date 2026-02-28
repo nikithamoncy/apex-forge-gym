@@ -24,7 +24,7 @@ Keep responses short, under 3 sentences if possible. Use tough love.`,
 
         return result.toDataStreamResponse();
     } catch (error) {
-        console.error("CHAT API ERROR:", error.stack || error);
+        console.error("CHAT API ERROR:", (error as Error).stack || error);
         return new Response(JSON.stringify({ error: (error as Error).stack || (error as Error).message || "Internal Server Error" }), { status: 500 });
     }
 }
